@@ -199,7 +199,37 @@ prices[min(prices, key = lamda k: prices[k])]
 10
 
 
-# Recipe 9: 
+# Recipe 9: Most frequently occuring elements in a sequence
+from collections import Counter
+>>> words = [
+...    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+...    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around', 'the',
+...    'eyes', "don't", 'look', 'around', 'the', 'eyes', 'look', 'into',
+...    'my', 'eyes', "you're", 'under'
+... ]
+word_counts = Counter(words)
+print(word_counts)
+Counter({'eyes': 8, 'the': 5, 'look': 4, 'into': 3, 'my': 3, 'around': 2, 'not': 1, "don't": 1, "you're": 1, 'under':1})
+
+# find word with max count
+>>> max(zip(word_counts.values(), word_counts.keys()))
+(8, 'eyes')
+
+# Recipe 10:mapping names to sequence elements, useful when position in a list/tuple has a specific value
+# example: suppose we have a list of coordinates each in the form of a tuple where 1st element
+# is longitude and second signifies latitude
+>>> from collections import namedtuple
+# namedtuple takes first argumnet as name of the namedtuple and names of the attributes stored
+>>> Coordinates = namedtuple('Coordinates', ['longitude', 'latitude'])
+>>> c1 = Coordinates(100,90)
+>>> c1.longitude
+100
+>>> c1.latitude
+90
+
+# Recip1 11: 
+
+
 
 
 
