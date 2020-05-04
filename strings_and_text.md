@@ -76,7 +76,7 @@ text2 = 'Nov 27, 2012'.     # this should not match
 >>> pattern.match(text)                                 # no match found as pattern is not matched at the start of the text
 >>> pattern.search(text)
 <re.Match object; span=(9, 19), match='11/27/2012'>     # search will find a match anywhere in text
-
+```
 
 ### Recipe 4: search and replace
 use string.replace or the re.sub() method for more complex replacements
@@ -93,6 +93,7 @@ use string.replace or the re.sub() method for more complex replacements
 >>> import re
 >>> re.sub(r'(\d+)/(\d+)/(\d+)', r'\3-\1-\2', text)
 'Today is 2020-05-05'                               # see how the order of the matched groups is altered in the substitution                                                     # pattern
+```
 
 ### Recipe 5: case-insensitive search and replace/matching
 use the re.IGNORECASE flag when using regexes for case insensitive matching
@@ -104,6 +105,38 @@ use the re.IGNORECASE flag when using regexes for case insensitive matching
 >>> re.sub('harry', 'Harry', text, flags=re.IGNORECASE)
 'Uppercase Harry Lowercase Harry Mixedcase Harry'
 ```
+
+### Recipe 6: stripping unwanted characters from strings
+strip(): removes leading and trailing spaces
+rstrip(: removes trailing spaces
+lstrip(): removes leading spaces
+```python
+>>> text = "    hello    "
+>>> text.lstrip()
+'hello    '
+>>> text.rstrip()
+'    hello'
+>>> text.strip()
+'hello'
+
+# can also use a character parameter for strip methods, instead of spaces it will remove the leading or trailing chars
+>>> text = "****hello****"
+>>> text.strip("*")
+
+# to replace spaces from the middle of the string use str.replace()
+>>> text = '   he   llo   '
+>>> text.replace(" ", "")
+'hello'
+
+# to sanitize file contents when reading
+>>> with open("f1.txt", 'r') as f1:
+...     for line in f1:
+...         l = line.strip()                # remove leading and trailing space from each line
+...         print(l, len(l)
+```
+
+
+
 
 
 
