@@ -94,7 +94,16 @@ use string.replace or the re.sub() method for more complex replacements
 >>> re.sub(r'(\d+)/(\d+)/(\d+)', r'\3-\1-\2', text)
 'Today is 2020-05-05'                               # see how the order of the matched groups is altered in the substitution                                                     # pattern
 
+### Recipe 5: case-insensitive search and replace/matching
+use the re.IGNORECASE flag when using regexes for case insensitive matching
 
+```python
+>>> text = 'Uppercase HARRY Lowercase harry Mixedcase Harry'
+>>> re.findall('harry', text, flags=re.IGNORECASE)
+['HARRY', 'harry', 'Harry']
+>>> re.sub('harry', 'Harry', text, flags=re.IGNORECASE)
+'Uppercase Harry Lowercase Harry Mixedcase Harry'
+```
 
 
 
