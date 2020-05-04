@@ -78,7 +78,23 @@ text2 = 'Nov 27, 2012'.     # this should not match
 <re.Match object; span=(9, 19), match='11/27/2012'>     # search will find a match anywhere in text
 
 
-### Recipe 4: 
+### Recipe 4: search and replace
+use string.replace or the re.sub() method for more complex replacements
+
+```python
+# In the text below replace 'be' with 'go'
+>>> text = "To be or not to be"
+>>> text.replace('be', 'go')
+'To go or not to go'
+
+# In the text below, change the date format from mm/dd/yyyy to yyyy-mm-dd
+# use re.sub(pattern_to_replace, replace_with, text)
+>>> text = "Today is 05/05/2020"
+>>> import re
+>>> re.sub(r'(\d+)/(\d+)/(\d+)', r'\3-\1-\2', text)
+'Today is 2020-05-05'                               # see how the order of the matched groups is altered in the substitution                                                     # pattern
+
+
 
 
 
