@@ -42,4 +42,10 @@ f2.txt
 f4.xml
 ```
 
+### Recipe 3: find match at start or anywhere in text
+-> to match at start use re.match()
+-> to match anywhere in text use re.search()
+-> to match a pattern mutiple times first compile the pattern with re.compile()
+
+```python
 
