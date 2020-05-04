@@ -45,8 +45,38 @@ C 6/11/2007
 CAT 6/11/2007
 ```
 
+### writing values into a csv file
 
+If data is in form of arrays, use the csv.write method to write row by row
+Example, we need to write the below data into a csv file
+>>> headers = ['Symbol','Price','Date','Time','Change','Volume']
+>>> rows = [('AA', 39.48, '6/11/2007', '9:36am', -0.18, 181800),
+...         ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500),
+...         ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000),
+...        ]
 
+```python
+# use csv writer object
+>>> with open("stock.csv", 'w') as csvf:
+...     f_csv = csv.writer(csvf)          # create a csv writer object
+...     f_csv.writerow(headers)           # write header line first
+...     f_csv.writerow(rows)              # write rows
+```
 
+### If data is in key value format then use csv.DictWriter
+data to write to file:
+>>> headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
+>>> rows = [{'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007',
+...           'Time':'9:36am', 'Change':-0.18, 'Volume':181800},
+...         {'Symbol':'AIG', 'Price': 71.38, 'Date':'6/11/2007',
+...           'Time':'9:36am', 'Change':-0.15, 'Volume': 195500},
+...         {'Symbol':'AXP', 'Price': 62.58, 'Date':'6/11/2007',
+...           'Time':'9:36am', 'Change':-0.46, 'Volume': 935000},
+...     ]
 
-
+```python
+>>> with open("stocksd.csv", 'w') as fh:
+...     f_csv_dict = csv.DictWriter(fh, headers)        # create dictwriter object with file handle and header line
+...     f_csv_dict.writeheader()                        # write the header
+...     f_csv_dict.writerows(rows)                      # write the rows, data is mapped to header columns
+```
