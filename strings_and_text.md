@@ -48,4 +48,37 @@ f4.xml
 -> to match a pattern mutiple times first compile the pattern with re.compile()
 
 ```python
+# match date that is in the form of mm/dd/yyyy
+text1 = '11/27/2012'        # this should match
+text2 = 'Nov 27, 2012'.     # this should not match
+
+# re.match(pattern, text_to_match), returns a match object if match is found otherwise None
+>>> re.match(r'\d+/\d+/\d+', text1)
+<re.Match object; span=(0, 10), match='11/27/2012'>
+>>> re.match(r'\d+/\d+/\d+', text2)
+
+# to get the matched text, use the matched_object.group() method
+>>> mo = re.match(r'\d+/\d+/\d+', text1)
+>>> mo.group()
+'11/27/2012'
+
+# capture groups : to capture different parts of the matched text use capture groups
+>>> mo = re.match(r'(\d+)/(\d+)/(\d+)', text1)>>> mo.groups()
+('11', '27', '2012')
+>>> month, day, year = mo.groups()
+
+# if we are going to use the same pattern multiple times, against mutiple texts then
+# compile the pattern into a pattern object that can be reused
+>>> pattern = re.compile(r'\d+/\d+/\d+')
+
+# search vs match
+>>> text = 'Today is 11/27/2012'
+>>> pattern.match(text)                                 # no match found as pattern is not matched at the start of the text
+>>> pattern.search(text)
+<re.Match object; span=(9, 19), match='11/27/2012'>     # search will find a match anywhere in text
+
+
+### Recipe 4: 
+
+
 
