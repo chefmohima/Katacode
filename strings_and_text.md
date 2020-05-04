@@ -135,6 +135,49 @@ lstrip(): removes leading spaces
 ...         print(l, len(l)
 ```
 
+### Recipe 7: join strings -> array to string. split strings - > string to list
+```python
+# join : syntax - > delimeter.join(list_to_join) : returns a string joined with the given delimeter between each list 
+#element
+>>> str1 = 'Harry Potter'
+>>> str2 = 'And The Prisoner of Azakaban'
+>>> str3 = 'And the Goblet of Fire'
+>>> str4 = 'And the Chamber of Secrets'
+
+>>> ' '.join([str1, str2])
+'Harry Potter And The Prisoner of Azakaban'
+>>> ' '.join([str1, str3])
+'Harry Potter And the Goblet of Fire'
+>>> ' '.join([str1, str4])
+'Harry Potter And the Chamber of Secrets'
+
+# joining using a custom delimeter
+>>> '***'.join([str1, str4])
+'Harry Potter***And the Chamber of Secrets'
+
+# split string: syntax - > str.split(delimeter). default delimeter is  spcae character
+>>> str1
+'Harry Potter'
+>>> str1.split()
+['Harry', 'Potter']
+
+# to get all characters in a string use the list function
+>>> str1
+'Harry Potter'
+>>> list(str1)
+['H', 'a', 'r', 'r', 'y', ' ', 'P', 'o', 't', 't', 'e', 'r']ˇ
+
+# using split to get values from a string
+>>> url  = "https://www.google.com//search"
+>>> protocol, link, resource = url.split("//")
+>>> protocol
+'https:'
+>>> link
+'www.google.com'
+>>> resource
+'search'
+
+
 
 
 
