@@ -19,6 +19,7 @@ Symbol,Price,Date,Time,Change,Volume
 ...     f1_csv = csv.reader(f1)
 ...     for row in f1_csv:
 ...         print(row)                                  # access cell values with index, ex: row[0], row[1] etc.
+
 ... 
 ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
 ['AA', '39.48', '6/11/2007', '9:36am', '-0.18', '181800']
@@ -66,6 +67,7 @@ Example, we need to write the below data into a csv file
 ### If data is in key value format then use csv.DictWriter
 data to write to file:
 >>> headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
+
 >>> rows = [{'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007',
 ...           'Time':'9:36am', 'Change':-0.18, 'Volume':181800},
 ...         {'Symbol':'AIG', 'Price': 71.38, 'Date':'6/11/2007',
