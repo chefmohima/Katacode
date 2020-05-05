@@ -51,10 +51,11 @@ CAT 6/11/2007
 If data is in form of arrays, use the csv.write method to write row by row
 Example, we need to write the below data into a csv file
 >>> headers = ['Symbol','Price','Date','Time','Change','Volume']
+
 >>> rows = [('AA', 39.48, '6/11/2007', '9:36am', -0.18, 181800),
-...         ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500),
-...         ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000),
-...        ]
+            ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500),
+            ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000),
+           ]
 
 ```python
 # use csv writer object
