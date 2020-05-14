@@ -139,6 +139,32 @@ l = get_line("testfile", 20)
 print(l)
 ```
 
+#### Program: append to a file, do not overwrite
+```python
+# use the 'a' mode for append
+with open(filename, 'a') as f:
+    filename.write(content)
+```
+
+#### Program: Move/rename a file
+```python
+# using os.rename
+>>> import os
+>>> os.listdir()
+['testfile.py', 'FileHandling.iml', 'testdir', 'testfile', '.idea']
+>>> os.rename('testfile', 'testdir/testfile')
+>>> os.listdir()
+['testfile.py', 'FileHandling.iml', 'testdir', '.idea']             # testfile moved to the testdir
+
+# using shutil.move
+>>> import shutil
+>>> shutil.move('testdir/testfile', 'testdir/../textfile')
+'testdir/../textfile'
+>>> os.listdir()
+['testfile.py', 'FileHandling.iml', 'textfile', 'testdir', '.idea'] # testfile renamed to textfile and moved out of testdir
+
+```
+
 
 
 
